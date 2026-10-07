@@ -7,376 +7,100 @@
     <style>
         :root {
             --bg-color: #000000;
-            --surface-color: #000000;
             --surface-card: #080808;
             --accent-color: #c5a880; 
-            --accent-glow: rgba(197, 168, 128, 0.15);
             --text-main: #ffffff;
             --text-muted: #aaaaaa;
             --border-color: #1a1a1a;
-            --font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            --font-family: sans-serif;
         }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            font-family: var(--font-family);
-            line-height: 1.6;
-            scroll-behavior: smooth;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        /* --- HEADER & NAVIGATION --- */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background-color: rgba(0, 0, 0, 0.95);
-            border-bottom: 1px solid var(--border-color);
-            z-index: 1000;
-            backdrop-filter: blur(8px);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.25rem 2rem;
-        }
-
-        .logo {
-            font-size: 1.4rem;
-            font-weight: 800;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .logo span {
-            color: var(--accent-color);
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 1.5rem;
-            align-items: center;
-        }
-
-        nav ul a {
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: color 0.3s;
-        }
-
-        nav ul a:hover {
-            color: var(--accent-color);
-        }
-
-        .nav-phone {
-            background-color: var(--surface-color);
-            border: 1px solid var(--accent-color);
-            padding: 0.5rem 1.2rem;
-            border-radius: 4px;
-            color: var(--accent-color) !important;
-            font-weight: 700 !important;
-            box-shadow: 0 0 10px var(--accent-glow);
-        }
-
-        .nav-phone:hover {
-            background-color: var(--accent-color);
-            color: #000 !important;
-        }
-
-        /* --- HERO SECTION --- */
-        .hero {
-            min-height: 75vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 2rem;
-            background: #000000;
-            margin-top: 60px;
-        }
-
-        .hero h1 {
-            font-size: 4.5rem;
-            font-weight: 900;
-            letter-spacing: -1px;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-        }
-
-        .hero h1 span {
-            color: var(--accent-color);
-            display: block;
-            font-size: 5rem;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            max-width: 650px;
-            margin-bottom: 2.5rem;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .btn {
-            padding: 0.9rem 2.2rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 0.85rem;
-        }
-
-        .btn-primary {
-            background-color: var(--accent-color);
-            color: #000;
-            border: 1px solid var(--accent-color);
-        }
-
-        .btn-primary:hover {
-            background-color: transparent;
-            color: var(--accent-color);
-        }
-
-        .btn-secondary {
-            background-color: transparent;
-            color: var(--text-main);
-            border: 1px solid var(--border-color);
-        }
-
-        .btn-secondary:hover {
-            border-color: var(--text-main);
-        }
-
-        /* --- GENERAL STRUCTURE --- */
-        section {
-            padding: 6rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            background-color: #000000;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .section-title span {
-            color: var(--accent-color);
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: var(--text-muted);
-            margin-bottom: 4rem;
-            font-size: 1rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* --- DETAILED SERVICES SECTION --- */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .service-card {
-            background-color: var(--surface-card);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .service-card:hover {
-            border-color: var(--accent-color);
-            transform: translateY(-5px);
-        }
-
-        .image-container {
-            width: 100%;
-            aspect-ratio: 4 / 3;
-            background-color: #050505;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .image-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .placeholder-text {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--text-muted);
-            position: absolute;
-        }
-
-        .service-content {
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-
-        .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            color: var(--text-main);
-            text-transform: uppercase;
-        }
-
-        .service-price {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: var(--accent-color);
-            margin-bottom: 1rem;
-        }
-
-        .service-card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 1.5rem;
-        }
-
-        /* --- BOOKING SYSTEM PANEL --- */
-        .booking-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            background-color: var(--surface-card);
-            padding: 3.5rem;
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 0.5rem;
-            color: var(--text-muted);
-        }
-
-        input[type="text"],
-        input[type="email"],
-        select,
-        textarea {
-            width: 100%;
-            padding: 0.9rem;
-            background-color: #000000;
-            border: 1px solid var(--border-color);
-            color: var(--text-main);
-            border-radius: 4px;
-            font-family: inherit;
-            font-size: 1rem;
-        }
-
-        input:focus, select:focus, textarea:focus {
-            outline: none;
-            border-color: var(--accent-color);
-        }
-
-        .calculator-box {
-            border-left: 2px solid var(--accent-color);
-            padding-left: 2.5rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .calc-title {
-            font-size: 1.6rem;
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-        }
-
-        .price-display {
-            margin-top: 2rem;
-            padding: 1.75rem;
-            background-color: #000000;
-            border: 1px solid var(--border-color);
-            text-align: center;
-            border-radius: 4px;
-        }
-
-        .price-display h4 {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            margin-bottom: 0.5rem;
-            letter-spacing: 1px;
-        }
-
-        .price-amount {
-            font-size: 2.8rem;
-            font-weight: 800;
-            color: var(--accent-color);
-        }
-
-        /* --- FOOTER --- */
-        footer {
-            border-top: 1px solid var(--border-color);
-            padding: 4rem 2rem;
-            text-align: center;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            background-color: #000000;
-        }
-        
-        .footer-contacts {
-            margin-bottom: 2rem;
-            font-size: 1rem;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 3rem;
-        }
-        
-        .footer-contacts a {
-            color: var(--accent-color);
-            font-weight: 600;
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background-color: var(--bg-color); color: var(--text-main); font-family: var(--font-family); line-height: 1.6; }
+        a { color: inherit; text-decoration: none; }
+        header { position: fixed; top: 0; width: 100%; background-color: #000000; border-bottom: 1px solid var(--border-color); z-index: 1000; }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 2rem; }
+        .logo { font-size: 1.4rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; }
+        .logo span { color: var(--accent-color); }
+        nav ul { display: flex; list-style: none; gap: 1.5rem; align-items: center; }
+        nav ul a { font-size: 0.85rem; font-weight: 600; text-transform: uppercase; }
+        nav ul a:hover { color: var(--accent-color); }
+        .nav-phone { border: 1px solid var(--accent-color); padding: 0.5rem 1.2rem; border-radius: 4px; color: var(--accent-color); }
+        .hero { min-height: 75vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 2rem; margin-top: 60px; }
+        .hero h1 { font-size: 3.5rem; font-weight: 900; margin-bottom: 1rem; text-transform: uppercase; }
+        .hero h1 span { color: var(--accent-color); display: block; }
+        .hero p { color: var(--text-muted); max-width: 600px; margin-bottom: 2rem; }
+        .btn { padding: 0.9rem 2rem; font-weight: 700; text-transform: uppercase; border-radius: 4px; cursor: pointer; display: inline-block; }
+        .btn-primary { background-color: var(--accent-color); color: #000; }
+        .btn-secondary { border: 1px solid var(--border-color); color: var(--text-main); }
+        section { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
+        .section-title { font-size: 2.2rem; text-align: center; margin-bottom: 3rem; text-transform: uppercase; }
+        .section-title span { color: var(--accent-color); }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .service-card { background-color: var(--surface-card); border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; }
+        .image-container { width: 100%; aspect-ratio: 4 / 3; background-color: #050505; }
+        .image-container img { width: 100%; height: 100%; object-fit: cover; }
+        .service-content { padding: 2rem; display: flex; flex-direction: column; flex-grow: 1; }
+        .service-card h3 { font-size: 1.4rem; margin-bottom: 0.5rem; text-transform: uppercase; }
+        .service-price { font-size: 1.6rem; font-weight: 800; color: var(--accent-color); margin-bottom: 1rem; }
+        .service-card p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem; }
+        footer { border-top: 1px solid var(--border-color); padding: 3rem 2rem; text-align: center; color: var(--text-muted); }
+        .footer-contacts { margin-bottom: 1.5rem; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; }
+        .footer-contacts a { color: var(--accent-color); font-weight: bold; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <div class="logo">Simple <span>Ink Master</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Packages</a></li>
+                    <li><a href="https://wa.me" target="_blank" class="nav-phone">💬 WhatsApp</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section id="home" class="hero">
+        <h1>Sleeve Masterpieces. <span>Simple Ink Master.</span></h1>
+        <p>Pristine, safe, and professional custom tattoo studio in Honiara.</p>
+        <a href="tel:7589808" class="btn btn-primary">📞 Call 7589808</a>
+    </section>
+    <section id="services">
+        <h2 class="section-title">Sleeve <span>Services</span></h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="image-container"><img src="https://unsplash.com" alt="Quarter Sleeve"></div>
+                <div class="service-content">
+                    <h3>Quarter Sleeve</h3>
+                    <div class="service-price">$500</div>
+                    <p>Focuses cleanly on key spatial boundaries like the upper outer shoulder or forearm bands.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="image-container"><img src="https://unsplash.com" alt="Half Sleeve"></div>
+                <div class="service-content">
+                    <h3>Half Sleeve</h3>
+                    <div class="service-price">$1000</div>
+                    <p>Extends from shoulder line down to the elbow crease or wraps the entire forearm.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="image-container"><img src="https://unsplash.com" alt="Full Sleeve"></div>
+                <div class="service-content">
+                    <h3>Full Sleeve</h3>
+                    <div class="service-price">$2000</div>
+                    <p>Comprehensive artwork from your upper shoulder cap entirely down to the wrist line.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="footer-contacts">
+            <p>📧 <a href="mailto:doncarlosrimou@gmail.com">doncarlosrimou@gmail.com</a></p>
+            <p>📞 <a href="tel:7589808">7589808</a></p>
+        </div>
+        <p>&copy; 2026 Simple Ink Master. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
