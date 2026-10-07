@@ -6,14 +6,14 @@
     <title>Simple Ink Master | Premium Sleeve Custom Tattooing</title>
     <style>
         :root {
-            --bg-color: #070707;
-            --surface-color: #111111;
-            --surface-card: #181818;
+            --bg-color: #000000;
+            --surface-color: #000000;
+            --surface-card: #080808;
             --accent-color: #c5a880; 
             --accent-glow: rgba(197, 168, 128, 0.15);
             --text-main: #ffffff;
             --text-muted: #aaaaaa;
-            --border-color: #222222;
+            --border-color: #1a1a1a;
             --font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
 
@@ -41,7 +41,7 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background-color: rgba(7, 7, 7, 0.95);
+            background-color: rgba(0, 0, 0, 0.95);
             border-bottom: 1px solid var(--border-color);
             z-index: 1000;
             backdrop-filter: blur(8px);
@@ -110,7 +110,7 @@
             align-items: center;
             text-align: center;
             padding: 2rem;
-            background: radial-gradient(circle at center, #161616 0%, #070707 100%);
+            background: #000000;
             margin-top: 60px;
         }
 
@@ -178,6 +178,7 @@
             padding: 6rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
+            background-color: #000000;
         }
 
         .section-title {
@@ -227,7 +228,7 @@
         .image-container {
             width: 100%;
             aspect-ratio: 4 / 3;
-            background-color: #222;
+            background-color: #050505;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -242,7 +243,6 @@
             object-fit: cover;
         }
 
-        /* Temporary aesthetic placeholders before real images are hosted */
         .placeholder-text {
             font-size: 0.85rem;
             text-transform: uppercase;
@@ -308,7 +308,7 @@
         textarea {
             width: 100%;
             padding: 0.9rem;
-            background-color: var(--bg-color);
+            background-color: #000000;
             border: 1px solid var(--border-color);
             color: var(--text-main);
             border-radius: 4px;
@@ -338,7 +338,7 @@
         .price-display {
             margin-top: 2rem;
             padding: 1.75rem;
-            background-color: var(--bg-color);
+            background-color: #000000;
             border: 1px solid var(--border-color);
             text-align: center;
             border-radius: 4px;
@@ -365,7 +365,7 @@
             text-align: center;
             font-size: 0.85rem;
             color: var(--text-muted);
-            background-color: #040404;
+            background-color: #000000;
         }
         
         .footer-contacts {
@@ -377,3 +377,6 @@
             gap: 3rem;
         }
         
+        .footer-contacts a {
+            color: var(--accent-color);
+            font-weight: 600;
